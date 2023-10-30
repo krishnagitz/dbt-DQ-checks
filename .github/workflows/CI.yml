@@ -56,4 +56,5 @@ jobs:
       - name: Run DQ Checks
         run: |
           cd dq_checks
+          dbt deps
           poetry run dbt test --select source:DQ_Checks
