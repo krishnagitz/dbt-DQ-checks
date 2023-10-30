@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "dbt-dq-checks"
+version = "0.1.0"
+description = "DQ Validation App"
+authors = ["krishnagitz <krishnakumar2090@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+dbt-core = "^1.6.6"
+dbt-snowflake = "^1.6.4"
+pip-system-certs = "^4.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

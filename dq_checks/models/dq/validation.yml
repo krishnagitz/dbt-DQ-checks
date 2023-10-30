@@ -1,0 +1,48 @@
+version: 2
+
+sources:
+    - name: DQ_Checks
+      tags: ['DQ','Functional', 'Ingestion Pipelines']
+      description: It is to do with DQ Checks on Ingestion ELT Pipelines
+      database: SNOWFLAKE_SAMPLE_DATA
+      schema: TPCH_SF1
+      # freshness: # default freshness
+      #   warn_after: { count: 2, period: day }
+      #   error_after: { count: 7, period: day }
+      # loaded_at_field: etl_updt_ts
+      tables:
+        - name: CUSTOMER
+          tags: ['cust']
+          description: "DBT Validation"
+          tests:
+            - dbt_utils.unique_combination_of_columns:
+                combination_of_columns:
+                  - c_custkey
+                  - c_name
+                tags: ['uniq']
+
+          columns:
+            - name: c_custkey
+              tests:
+                - unique
+                - not_null
+              tags: ['PK', 'NOTNULL']
+              
+            - name: c_name
+              tests:
+                - not_null
+              tags: ['NOTNULL']
+            
+            - name: c_phone
+              tests:
+                - not_null
+                - dbt_expectations.expect_column_values_to_match_regex:
+                    name: Validate the phone number in the format - 28-247-803-9025
+                    regex: '^[0-9]{2}-[0-9]{3}-[0-9]{3}-[0-9]{4}$'
+                    tags: ['phone']
+            
+            - name: c_acctbal
+              tests:
+                - assert_job_acctbal:
+                    tolerance: -80
+
