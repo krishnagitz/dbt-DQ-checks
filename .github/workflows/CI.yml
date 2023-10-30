@@ -41,7 +41,7 @@ jobs:
 
       - name: Run black
         run: |
-          poetry run python -m black src --check
+          poetry run python -m black dq_checks --check
       - name: Run ruff
         run: |
           poetry run python -m ruff check .
