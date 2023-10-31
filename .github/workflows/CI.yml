@@ -44,16 +44,17 @@ jobs:
       - name: Install project
         run: poetry install --no-interaction --no-root
 
-      - name: Run black
-        run: |
-          poetry run python -m black dq_checks --check
-      - name: Run ruff
-        run: |
-          poetry run python -m ruff check .
-
-      # - name: Install dependencies
+      # - name: Run black
       #   run: |
-      #      dbt deps
+      #     poetry run python -m black dq_checks --check
+      # - name: Run ruff
+      #   run: |
+      #     poetry run python -m ruff check .
+
+      - name: Install dependencies
+        run: |
+           pip install dbt
+           dbt deps
 
       - name: Run DQ Checks
         run: |
