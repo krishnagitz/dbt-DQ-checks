@@ -54,7 +54,7 @@ jobs:
       - name: Install dependencies
         working-directory: ./dq_checks
         run: |
-           dbt deps
+           poetry run dbt deps
 
       - name: Run DQ Checks
         run: |
