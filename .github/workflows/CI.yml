@@ -57,5 +57,6 @@ jobs:
            poetry run dbt deps
 
       - name: Run DQ Checks
+        working-directory: ./dq_checks
         run: |
            poetry run dbt test --select source:DQ_Checks
