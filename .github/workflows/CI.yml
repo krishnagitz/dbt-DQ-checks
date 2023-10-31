@@ -54,7 +54,6 @@ jobs:
       - name: Install dependencies
         working-directory: ./dq_checks
         run: |
-           pip install dbt
            dbt deps
 
       - name: Run DQ Checks
