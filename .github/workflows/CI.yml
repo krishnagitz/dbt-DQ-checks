@@ -52,9 +52,9 @@ jobs:
       #     poetry run python -m ruff check .
 
       - name: Install dependencies
+        working-directory: ./dq_checks
         run: |
            pip install dbt
-           cd dq_checks
            dbt deps
 
       - name: Run DQ Checks
