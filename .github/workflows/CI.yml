@@ -53,12 +53,12 @@ jobs:
         run: |
           poetry run python -m ruff check .
 
-      - name: Install dependencies
-        run: |
-           dbt deps
+      # - name: Install dependencies
+      #   run: |
+      #      dbt deps
 
       - name: Run DQ Checks
         run: |
-          cd dq_checks
+          # cd dq_checks
           dbt deps
           poetry run dbt test --select source:DQ_Checks
