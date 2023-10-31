@@ -10,6 +10,7 @@ python = "^3.11"
 dbt-core = "^1.6.6"
 dbt-snowflake = "^1.6.4"
 pip-system-certs = "^4.0"
+dbt = "^1.0.0.34.12"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.9.1"

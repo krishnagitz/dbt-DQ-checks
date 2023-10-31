@@ -354,6 +354,19 @@ test = ["pretend", "pytest (>=6.2.0)", "pytest-benchmark", "pytest-cov", "pytest
 test-randomorder = ["pytest-randomly"]
 
 [[package]]
+name = "dbt"
+version = "1.0.0.34.12"
+description = "The dbt Cloud CLI - an ELT tool for running SQL transformations and data models in dbt Cloud."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "dbt-1.0.0.34.12.tar.gz", hash = "sha256:79f8fe8f2a42c6faf9ca4d914d680eebeccd09e4e5adf48e662e7b56bf648338"},
+]
+
+[package.dependencies]
+setuptools = ">=61.2"
+
+[[package]]
 name = "dbt-core"
 version = "1.6.6"
 description = "With dbt, data analysts and engineers can build analytics the way engineers build applications."
@@ -1739,4 +1752,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "c1f9474fef300e739c8f69eda571b689ae68e70811876ab8b7e4f44c1df1bdb7"
+content-hash = "19a68f61018bbaa4183f7e8b848d2d91a78b372b66b92b8b446239ebf64606e4"
